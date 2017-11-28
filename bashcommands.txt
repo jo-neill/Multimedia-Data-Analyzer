@@ -1,0 +1,10 @@
+pip install opencv-python
+
+pip install flickr_downloader
+
+flickr_download -k 49dde3b8b8ff468446fd2d773666b7ad -s aad2a1f30b38e273 -d 72157687409908321
+flickr_download -k 49dde3b8b8ff468446fd2d773666b7ad -s aad2a1f30b38e273 -d 72157661770426398
+flickr_download -k 49dde3b8b8ff468446fd2d773666b7ad -s aad2a1f30b38e273 -d 72157688235326304
+flickr_download -k 49dde3b8b8ff468446fd2d773666b7ad -s aad2a1f30b38e273 -d 72157686509839312
+flickr_download -k 49dde3b8b8ff468446fd2d773666b7ad -s aad2a1f30b38e273 -d 72157688326650173
+flickr_download -k 49dde3b8b8ff468446fd2d773666b7ad -s aad2a1f30b38e273 -d 72157688280830004

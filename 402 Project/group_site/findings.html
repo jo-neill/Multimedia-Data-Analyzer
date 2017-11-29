@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>IST 402 Team 1 Final Project</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/1-col-portfolio.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">IST 402 Team 1 Final Project</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Process
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="findings.html">Findings</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="citations.html">Sources</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Page Heading -->
+      <h1 class="my-4">Flickr Filter Identification
+        <small>Findings and Results</small>
+      </h1>
+
+      <!-- Project One -->
+      <div class="row">
+        <div class="col-md-7">
+          <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="https://i.imgur.com/oYR96Ts.png" alt="">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h3>1. Testing Parameters</h3>
+          <p>Training and testing was performed on datasets containing three filters, five filters, and five filters plus a set of unfiltered images. All odd neighbor (k) values from 1-29 were evaluated to determine the value with optimal accuracy in each case. Various ratios of training to testing data were also experimented with. Optimal conditions were logged for each dataset tested.</p>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <hr>
+
+      <!-- Project Two -->
+      <div class="row">
+        <div class="col-md-5">
+          <h3>2. Testing Results</h3>
+          <p>Tested over order randomized datasets 3000 times.</p>
+
+          <h6>3 Filter Dataset</h6>
+          <p>Overall best: 98.90%</p>
+          <p>Best K Value: 7</p>
+          <p>Average: 95.22%</p>
+          <p>Spread: 11.40%</p>
+
+          <h6>5 Filter Dataset</h6>
+          <p>Overall best: 88.62%</p>
+          <p>Best K Value: 13</p>
+          <p>Average: 76.27%</p>
+          <p>Spread: 25.04%</p>
+
+          <h6>All Sets</h6>
+          <p>Overall best: 78.52%</p>
+          <p>Best K Value: 17</p>
+          <p>Average: 67.89%</p>
+          <p>Spread: 21.47%</p>
+
+        </div>
+        <div class="col-md-7">
+          <br>
+          <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="https://i.imgur.com/gSKRTfz.png" alt="">
+          </a>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <hr>
+
+      <!-- Project Three -->
+      <div class="row">
+        <div class="col-md-7">
+          <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="https://i.imgur.com/kkrTvFN.png" alt="">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h3>3. Error Sources & Concessions</h3>
+          <p>The most immediate source of error directly pertains to the training data available. Flickr does not indicate what filters have been applied to images automatically or after a user has enabled one, hence the opportunity to undertake this project. Filters must be attempted to be identified by eye and categorized as such. This proves a difficult task with more subtle or similar filters. This suspicion is substantiated by a high degree of accuracy when testing the most obvious and likely to be correctly identified filters in the three filter set.</p>
+          <p>An additional concession is inherently the color composition of the images in the datasets. While filters do heavily alter the HSV composition of images, darker or lighter images regardless of applied filter may already be more predisposed to being recognized as noir or bleached respectively, regardless of another filter being applied.</p>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <hr>
+    </div>
+
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">The Pennsylvania State University | College of Information Sciences and Technology</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>

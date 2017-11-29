@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>IST 402 Team 1 Final Project</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="css/1-col-portfolio.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">IST 402 Team 1 Final Project</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Process
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="findings.html">Findings</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="citations.html">Sources</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+      <!-- Page Heading -->
+      <h1 class="my-4">Flickr Filter Identification
+        <small>Acknowledged Sources and Repositories</small>
+      </h1>
+
+      <!-- Project One -->
+      <div class="row">
+        <div class="col-md-7">
+          <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="https://i.imgur.com/Phq1AhC.png" alt="">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h3>1. Image Acquisition</h3>
+          <p>A python script was used to retrieve albums of filtered images for training from Flickr. This directly utilized the Flickr API for the acquisition process. Images are the loaded by set for OpenCV processing.</p>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <hr>
+
+      <!-- Project Two -->
+      <div class="row">
+        <div class="col-md-5">
+          <h3>2. Image Formatting</h3>
+          <p>Images acquired are various sizes and aspect ratios. As the primary analysis is undertaken utilizing HSV values, it was determined that formatting all images to be a uniform aspect ratio and size took precedence over preserving aspect ratio. Images are downsized to 250x250 from their current sizes and aspect ratios.</p>
+        </div>
+        <div class="col-md-7">
+          <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="https://i.imgur.com/epw5my2.png" alt="">
+          </a>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <hr>
+
+      <!-- Project Three -->
+      <div class="row">
+        <div class="col-md-7">
+          <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="https://111426studio.files.wordpress.com/2015/11/colour_blog_hue_saturation_value.jpg" alt="">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h3>3. HSV Data Extraction</h3>
+          <p>Following formatting, images are then converted from BGR colorspace to HSV. Following much experimentation with histogram feature extraction, we found excellent accuracy could be achieved more quickly by isolating hue and saturation values for the images and computing means.</p>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <hr>
+
+      <!-- Project Four -->
+      <div class="row">
+
+        <div class="col-md-5">
+          <h3>4. KNN Filter Classifier</h3>
+          <p>After extensively experimenting with SVM models for learning, we established they were not ideal for the dataset and results attempting to be achieved. In the end, supplying a KNN with hue and saturation means proved to be an effective identifier of both the presence and signature of the filters tested.</p>
+        </div>
+        <div class="col-md-7">
+          <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="https://i.imgur.com/3r7IoE9.png" alt="">
+          </a>
+        </div>
+      </div>
+
+      <hr>
+
+      <!-- Project Five -->
+      <div class="row">
+        <div class="col-md-7">
+          <a href="#">
+            <img class="img-fluid rounded mb-3 mb-md-0" src="https://i.imgur.com/ZQHFHvB.png" alt="">
+          </a>
+        </div>
+        <div class="col-md-5">
+          <h3>5. Bulk Analysis with Likes*</h3>
+          <p>In progress. For the full test and subsequent likability analysis, an initial KNN is utilized in a first pass to determine the presence of any detectable filter we are considering. The subsequent layer is the current filter identification model. Successful identifications may then be paired with logged 'like' values from Flickr to determine the most popular or effective filters.</p>
+        </div>
+      </div>
+      <!-- /.row -->
+
+      <!-- /.row -->
+      <hr>
+    </div>
+
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">The Pennsylvania State University | College of Information Sciences and Technology</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  </body>
+
+</html>

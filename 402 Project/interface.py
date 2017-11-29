@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import glob
 from Tkinter import *
+from collections import Counter
 
 def callback():
     img_name = E1.get()
@@ -347,40 +348,52 @@ def callback():
     print('Training & Testing KNN Classifier')
     # train the k-Nearest Neighbor classifier with the current value of `k`
     # Initiate kNN, train the data, then test it with test data for k=1
-    knn = cv2.ml.KNearest_create()
-    knn.train(train_means, cv2.ml.ROW_SAMPLE, train_lbls)
-    ret,result,neighbours,dist = knn.findNearest(test_means, 27)
+    results = np.array((0))
 
-    # Now we check the accuracy of classification
-    # For that, compare the result with test_labels and check which are wrong
-    filter_guess = ""
-    if result[0] == 1:
+    for k in range (1, 30, 2):
+        knn = cv2.ml.KNearest_create()
+        knn.train(train_means, cv2.ml.ROW_SAMPLE, train_lbls)
+        ret,result,neighbours,dist = knn.findNearest(test_means, k)
+
+        # Now we check the accuracy of classification
+        # For that, compare the result with test_labels and check which are wrong
+        filter_guess = ""
+        results = np.append(results, result[0])
+        continue
+
+    data = Counter(results)
+    print(data.most_common())
+
+    guess = data.most_common(1)[0][0]
+
+    if guess == 1:
         filter_guess = ('Your image may have the "Warm" filter applied.')
-    if result[0] == 2:
+    if guess == 2:
         filter_guess = ('Your image may have "Superfade" filter applied.')
-    if result[0] == 3:
+    if guess == 3:
         filter_guess = ('Your image may have "Noir" filter applied.')
-    if result[0] == 4:
+    if guess == 4:
         filter_guess = ('Your image may have "Antique" filter applied.')
-    if result[0] == 5:
+    if guess == 5:
         filter_guess = ('Your image may have "Bleached" filter applied.')
-    if result[0] == 6:
+    if guess == 6:
         filter_guess = ('Your image may not have a filter.')
 
 
 
-    L2 = Label(top, text= filter_guess)
-    L2.grid(row=2, column=0)
+    L2 = Label(top, text= filter_guess, font=("Courier New", 14))
+    L2.place(relx=.5, rely=.75, anchor=CENTER)
 
 top = Tk()
 top.title("Filter Identifier")
-L1 = Label(top, text="Image Name:")
-L1.grid(row=0, column=0)
-E1 = Entry(top, bd = 5)
-E1.grid(row=0, column=1)
+top.minsize(width=300, height=300)
+L1 = Label(top, text="Image Name:", font=("Courier New", 20, "bold"))
+L1.grid(row=5, column=0)
+E1 = Entry(top, bd = 5, font=("Courier New", 20))
+E1.grid(row=5, column=1)
 
-
-MyButton1 = Button(top, text="Submit", width=10, command=callback)
-MyButton1.grid(row=1, column=1)
+MyButton1 = Button(top, text="Submit", width=10, font=("Courier New", 20), command=callback)
+MyButton1.place(relx=.5, rely=.5, anchor=CENTER)
+#MyButton1.grid(row=15, column=1)
 
 top.mainloop()
